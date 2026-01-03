@@ -10,6 +10,8 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +29,14 @@ public class CalculatorTests {
     static void beforeAllTestCase() {
         System.out.println("This method will run once");
         calculator = new Calculator();
+    }
+
+    static Stream<Arguments> provideTestData() {
+        return Stream.of(
+                Arguments.of(100, 10),
+                Arguments.of(625, 25),
+                Arguments.of(0, 0)
+        );
     }
 
     @ParameterizedTest
@@ -66,7 +76,6 @@ public class CalculatorTests {
         assertEquals(0, calculator.mul(-1, 0));
         assertEquals(-2.5, calculator.mul(-1, 2.5));
     }
-
 
     @DisplayName("Feature-123 Test Division Functionality")
     @Tag("FEB_RElEASE")
@@ -133,7 +142,7 @@ public class CalculatorTests {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {2,-20,12,14,16})
+    @ValueSource(ints = {2, -20, 12, 14, 16})
     void testEvenNumbers(int input1) {
         assertTrue(calculator.isEven(input1));
     }
@@ -143,15 +152,5 @@ public class CalculatorTests {
     void testOddNumbers(int input1) {
         assertFalse(calculator.isEven(input1));
     }
-
-
-    static Stream<Arguments> provideTestData() {
-        return Stream.of(
-                Arguments.of(100,10),
-                Arguments.of(625,25),
-                Arguments.of(0,0)
-        );
-    }
-
 
 }
