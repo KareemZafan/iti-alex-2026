@@ -115,7 +115,7 @@ public class CalculatorTests {
     @DisplayName("Feature-123 Test Moduls Functionality")
     //@Disabled
     //@EnabledForJreRange(min = JRE.JAVA_8, max = JRE.JAVA_11)
-    @DisabledOnOs(OS.LINUX)
+    @DisabledOnOs(OS.WINDOWS)
     void testModuls() {
         // Arrange
 
