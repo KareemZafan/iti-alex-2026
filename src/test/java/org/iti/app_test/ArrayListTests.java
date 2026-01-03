@@ -21,7 +21,7 @@ public class ArrayListTests {
     void testListSizeGreaterThan5(){
         when(list.size()).thenReturn(50);
 
-        assertEquals(50, list.size());
+        assertEquals(5, list.size());
 
         verify(list).size();
     }
